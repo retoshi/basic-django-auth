@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+</head>
+<style link="stylesheet">
+  body {
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    color: blue
+  }
+
+  input {
+    display: block
+  }
+
+  input:hover {
+    border: 2px solid green;
+  }
+
+  input:focus {
+    border: 2px solid black;
+  }
+
+  .form-div > input:nth-child(5) {
+    cursor: pointer;
+  }
+
+  .form-div {
+    margin: auto auto;
+    width: fit-content;
+  }
+
+  #form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+  } 
+
+</style>
+<body>
+  <div>
+    <h1>Register Page</h1>
+    <div class="form-div">
+      <form action="register" method="POST" id="form">
+        {% csrf_token %}
+        <input type="text" placeholder="username" name="username">
+        <input type="text" placeholder="email" name="email">
+        <input type="password" placeholder="password" name="password">
+        <input type="password" placeholder="confirm password" name="confirm_password">
+        <p style="color: red">{{message}}</p>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
